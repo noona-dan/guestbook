@@ -1,0 +1,1201 @@
+/* =========================================
+   NANNI-ARCHIVE - CSS OPTIMIZADO Y ORDENADO
+   ========================================= */
+
+/* [1] VARIABLES Y RESET */
+:root {
+  --pink-bg: #f27ca5;
+  --pink-soft: #f8b6cb;
+  --pink-dark: #e55c8a;
+  --white: #ffffff;
+  --text: #6d2f44;
+  --ease-soft: cubic-bezier(.4, 0, .2, 1);
+  --ease-kawaii: cubic-bezier(.34, 1.56, .64, 1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--pink-bg);
+  background-image: radial-gradient(var(--pink-soft) 20%, transparent 20%),
+                    radial-gradient(var(--pink-soft) 20%, transparent 20%);
+  background-size: 10px 10px;
+  background-position: 0 0, 5px 5px;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Fuentes pixeladas */
+h1, h2, h3, .nav a, .phone, .btn, .btn-horario, .tagline, .gacha-title {
+  font-family: 'Silkscreen', cursive;
+  text-transform: uppercase;
+  overflow-wrap: break-word;
+}
+
+/* [2] ESTRUCTURA PRINCIPAL */
+.page {
+  width: 92%;
+  max-width: 1200px;
+  margin: 30px auto;
+  background: var(--white);
+  padding: 25px;
+  border-radius: 40px;
+  border: 4px double var(--pink-dark);
+  box-shadow: 12px 12px 0 rgba(0,0,0,0.1);
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr 1fr;
+  gap: 30px;
+}
+
+/* [3] HEADER Y NAVEGACIÓN */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  position: relative;
+}
+
+.logo {
+  background: var(--pink-soft);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.logo img { width: 24px; height: 24px; }
+
+/* Checkbox oculto para el menú hamburguesa */
+.nav-toggle {
+  display: none;
+}
+
+/* Botón hamburguesa (kawaii pixel style) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  background: var(--white);
+  border: 3px solid var(--pink-dark);
+  border-radius: 16px;
+  cursor: pointer;
+  gap: 6px;
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.15);
+  transition: all .3s var(--ease-kawaii);
+  z-index: 200;
+  flex-shrink: 0;
+}
+
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 3px;
+  background: var(--pink-dark);
+  border-radius: 2px;
+  transition: all .35s var(--ease-kawaii);
+  transform-origin: center;
+}
+
+.hamburger:hover {
+  transform: scale(1.08) rotate(-3deg);
+  box-shadow: 6px 6px 0 rgba(0,0,0,0.2);
+  background: var(--pink-soft);
+}
+
+/* Animación al abrir */
+.nav-toggle:checked + .hamburger span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+.nav-toggle:checked + .hamburger span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.nav-toggle:checked + .hamburger span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+.nav {
+  background: var(--white);
+  border-radius: 30px;
+  padding: 6px;
+  border: 1px solid var(--pink-soft);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.nav a {
+  text-decoration: none;
+  color: var(--text);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  white-space: nowrap;
+  transition: all .3s var(--ease-soft);
+}
+
+.nav a:hover { animation: jelly .5s; }
+.nav a.active { background: var(--pink-dark); color: white; }
+
+.phone {
+  text-decoration: none;
+  color: var(--text);
+  font-size: 14px;
+  text-align: right;
+}
+
+.phone span { font-size: 11px; opacity: .6; font-family: 'Poppins', sans-serif; }
+
+/* Marquee moderno (reemplaza <marquee>) */
+.marquee-container {
+  background: var(--pink-dark);
+  color: white;
+  padding: 5px 0;
+  margin: 10px 0;
+  border-radius: 20px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee-content {
+  display: inline-block;
+  animation: marquee 20s linear infinite;
+  font-family: 'Silkscreen', cursive;
+  font-size: 20px;
+  padding-left: 100%;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+/* [4] BOTONES FLOTANTES (Shrines + Guestbook) */
+.shrine-float-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--white);
+  border: 3px solid var(--pink-dark);
+  border-radius: 50px;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--pink-dark);
+  font-family: 'Silkscreen', cursive;
+  font-size: 20px;
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
+  z-index: 100;
+  animation: float 1s ease-in-out infinite;
+  max-width: calc(100vw - 40px);
+}
+
+.shrine-float-btn img { 
+  width: 30px; 
+  height: 30px; 
+  border-radius: 50%; 
+}
+
+.guest-float-btn {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  background: var(--white);
+  border: 3px solid var(--pink-dark);
+  border-radius: 50px;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none;
+  color: var(--pink-dark);
+  font-family: 'Silkscreen', cursive;
+  font-size: 20px;
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
+  z-index: 100;
+  animation: float 1s ease-in-out infinite;
+  max-width: calc(100vw - 40px);
+}
+
+.guest-float-btn img { 
+  width: 30px; 
+  height: 30px; 
+  border-radius: 50%; 
+}
+
+/* [5] HERO SECTION */
+.hero-chat {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 25px;
+  align-items: center;
+  margin: 25px 0;
+}
+
+.hero-image {
+  position: relative;
+  border-radius: 30px;
+  overflow: hidden;
+  border: 3px solid var(--pink-dark);
+}
+
+.hero-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  animation: heroZoom 1.6s ease-out;
+}
+
+.hero-text {
+  position: absolute;
+  bottom: 30px;
+  left: 35px;
+  right: 20px;
+  color: white;
+  text-shadow: 4px 4px 0 var(--pink-dark);
+  z-index: 2;
+}
+
+.hero-text h1 {
+  font-size: clamp(28px, 5vw, 60px);
+  margin: 0;
+  letter-spacing: 3px;
+  line-height: 1.1;
+}
+
+.tagline {
+  font-size: clamp(12px, 3vw, 14px);
+  opacity: .9;
+}
+
+/* Chat box */
+.chat-box {
+  background: var(--pink-soft);
+  border-radius: 25px;
+  padding: 12px;
+  box-shadow: 6px 6px 0 rgba(229,92,138,.25);
+  border: 2px solid var(--pink-dark);
+  height: 100%;
+  min-height: 300px;
+}
+
+/* [6] GACHA / DAILY FORTUNE */
+.gacha-container {
+  height: 420px;
+  background: var(--white);
+  border-radius: 20px;
+  padding: 15px;
+  text-align: center;
+}
+
+.gacha-title {
+  font-size: 24px;
+  color: var(--pink-dark);
+  margin-bottom: 30px;
+}
+
+.gacha-box {
+  cursor: pointer;
+  display: inline-block;
+  transition: transform .2s;
+}
+
+#gacha-img {
+  width: 125px;
+  height: auto;
+  image-rendering: pixelated;
+  transition: filter .3s;
+}
+
+.gacha-box:hover #gacha-img { 
+  animation: wiggle .3s infinite; 
+  filter: brightness(1.1); 
+}
+
+.gacha-box.open-anim { 
+  animation: pop-effect .5s ease-out; 
+}
+
+.gacha-result {
+  height: 100px;
+  background: var(--pink-soft);
+  color: var(--text);
+  border: 2px dashed var(--pink-dark);
+  border-radius: 15px;
+  padding: 10px;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  margin-top: 30px;
+}
+
+/* [7] SECCIONES DE CONTENIDO */
+.kitchen h2, 
+.specialty h2, 
+.news h2 {
+  color: var(--pink-dark);
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+.kitchen { text-align: center; }
+
+.intro-text {
+  font-family: 'Poppins', sans-serif;
+  color: var(--text);
+  line-height: 1.6;
+  text-align: center;
+  background: white;
+  padding: 15px;
+  border-left: 4px solid var(--pink-dark);
+  border-right: 4px solid var(--pink-dark);
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.intro-text b { 
+  color: var(--pink-dark); 
+  text-shadow: 1px 1px 0 var(--pink-soft); 
+}
+
+.kitchen img {
+  width: 45%;
+  max-width: 100%;
+  border-radius: 20px;
+  margin: 15px 0;
+  border: 3px solid var(--pink-soft);
+  animation: float 1s ease-in-out infinite;
+}
+
+.specialty {
+  background: var(--pink-soft);
+  border-radius: 30px;
+  padding: 25px;
+  text-align: center;
+  border: 2px solid var(--pink-dark);
+  animation: float 5s ease-in-out infinite;
+}
+
+.drink-preview img {
+  width: 100%;
+  border-radius: 20px;
+  margin: 15px 0;
+}
+
+/* Contenedor para poner el botón al lado de la imagen */
+.profile-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 15px;
+}
+
+/* Ajuste de la imagen para que no ocupe todo el ancho */
+.kitchen img {
+  width: 45%; 
+  margin: 0 !important;
+}
+
+/* [8] BOTONES */
+.btn, 
+.btn-horario, 
+.btns {
+  display: inline-block;
+  background: var(--pink-dark);
+  color: white;
+  text-decoration: none;
+  font-family: 'Silkscreen', cursive;
+  border: 2px solid var(--white);
+  transition: all .01s var(--ease-soft);
+}
+
+.btn {
+  padding: 10px 22px;
+  border-radius: 30px;
+  font-size: 12px;
+  box-shadow: 4px 4px 0 var(--text);
+  animation: glow 1s ease-in-out infinite;
+  margin: 10px;
+}
+
+.btn:hover { 
+  transform: translate(-2px, -2px); 
+  box-shadow: 6px 6px 0 var(--text); 
+}
+
+.btn-horario, 
+.btns {
+  margin-top: 5px;
+  padding: 8px 30px;
+  font-size: 16px;
+  width: 100%;
+  max-width: 350px;
+  text-align: center;
+  border-top: 4px solid #ff9eb5;
+  border-left: 4px solid #ff9eb5;
+  border-right: 4px solid #9c3a5a;
+  border-bottom: 4px solid #9c3a5a;
+  box-shadow: 6px 6px 0 rgba(0,0,0,0.2);
+  position: relative;
+}
+
+.btn-horario:hover { 
+  transform: translate(-2px, -2px); 
+  box-shadow: 8px 8px 0 var(--text); 
+}
+
+.btn-horario:active { 
+  transform: translate(4px, 4px); 
+  box-shadow: 0 0 0; 
+}
+
+.btns::after {
+  content: "NEW!";
+  position: absolute;
+  top: -15px;
+  right: -10px;
+  background: #fff;
+  color: var(--pink-dark);
+  font-size: 10px;
+  padding: 4px 10px;
+  border: 2px solid var(--pink-dark);
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.1);
+  animation: pixelBounce .3s infinite alternate steps(2);
+}
+
+/* Botón Especial "Sobre mí" */
+.btn-special {
+  margin: 0 !important;
+  background: var(--pink-dark);
+  border: 3px solid var(--white);
+  padding: 15px 25px;
+  font-size: 14px;
+  box-shadow: 6px 6px 0 var(--text);
+  animation: heartbeat 1.5s ease-in-out infinite !important;
+  position: relative;
+}
+
+/* [9] CHISMECITOS (NEWS) */
+.news {
+  max-height: 580px;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.news-item {
+  background: var(--white);
+  border: 3px outset var(--pink-soft);
+  border-radius: 18px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: all .35s var(--ease-kawaii);
+}
+
+.news-item:hover {
+  background: rgba(248,182,203, 0.1);
+  transform: scale(1.004);
+  box-shadow: 6px 6px 0 var(--pink-soft);
+}
+
+.news-item time {
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: var(--pink-dark);
+  font-weight: bold;
+}
+
+/* Scrollbar personalizada */
+.news::-webkit-scrollbar { width: 5px; }
+.news::-webkit-scrollbar-track { background: var(--pink-soft); border-radius: 10px; }
+.news::-webkit-scrollbar-thumb { background: var(--pink-dark); border-radius: 10px; }
+
+/* [10] FOOTER */
+footer {
+  text-align: center;
+  padding: 30px 15px 20px 15px;
+  margin-top: 50px;
+  border-top: 2px dashed var(--pink-soft);
+  background: linear-gradient(to bottom, transparent, #fffafb);
+  color: var(--text);
+  font-size: 12px;
+}
+
+.footer-divider {
+  color: var(--pink-soft);
+  letter-spacing: 10px;
+  margin-bottom: 15px;
+  font-size: 12px;
+}
+
+.footer-credits {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  color: var(--text);
+  margin-bottom: 8px;
+  opacity: 0.8;
+}
+
+.footer-credits span {
+  font-family: 'Silkscreen', cursive;
+  color: var(--pink-dark);
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Silkscreen', cursive;
+  font-size: 10px;
+}
+
+.sitemap-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--white);
+  border: 2px solid var(--pink-dark);
+  padding: 6px 15px !important;
+  border-radius: 15px;
+  color: var(--pink-dark);
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s var(--ease-kawaii);
+}
+
+.icon-map {
+  display: inline-block;
+  transition: transform 0.3s var(--ease-kawaii);
+}
+
+.sitemap-link:hover {
+  background: var(--pink-dark);
+  color: var(--white);
+  transform: scale(1.1) rotate(-2deg);
+  box-shadow: 0 0 15px rgba(229, 92, 138, 0.5);
+}
+
+.sitemap-link:hover .icon-map {
+  transform: scale(1.3);
+  animation: miniBounce 0.5s infinite alternate;
+}
+
+.sitemap-link::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.sitemap-link:hover::after {
+  left: 100%;
+}
+
+.footer-nav .sep {
+  color: var(--pink-soft);
+  opacity: 0.5;
+}
+
+.footer-barcode {
+  margin-top: 15px;
+  font-family: monospace;
+  font-size: 14px;
+  letter-spacing: -1px;
+  color: var(--pink-soft);
+  opacity: 0.4;
+  user-select: none;
+}
+
+/* [11] ANIMACIONES */
+@keyframes pixelBounce { 
+  from { transform: translateY(0); } 
+  to { transform: translateY(-10px); } 
+}
+
+@keyframes heroZoom { 
+  from { transform: scale(1); opacity: 0; } 
+  to { transform: scale(1); opacity: 1; } 
+}
+
+@keyframes jelly { 
+  0%, 100% { transform: scale(1); } 
+  30% { transform: scale(1.1, .9); } 
+  50% { transform: scale(.95, 1.05); } 
+}
+
+@keyframes float { 
+  0%, 100% { transform: translateY(0); } 
+  50% { transform: translateY(12px); } 
+}
+
+@keyframes glow { 
+  0%, 100% { box-shadow: 0 0 0 rgba(229,92,138,.4); } 
+  50% { box-shadow: 0 0 25px rgba(229,92,138,.6); } 
+}
+
+@keyframes wiggle { 
+  0%, 100% { transform: rotate(0); } 
+  25% { transform: rotate(5deg); } 
+  75% { transform: rotate(-5deg); } 
+}
+
+@keyframes pop-effect { 
+  0% { transform: scale(1); } 
+  50% { transform: scale(1.5); } 
+  100% { transform: scale(1); } 
+}
+
+@keyframes heartbeat {
+  0% { transform: scale(1); }
+  15% { transform: scale(1.1); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+@keyframes miniBounce {
+  from { transform: translateY(0); }
+  to { transform: translateY(-3px); }
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+/* Tablet grande / laptop pequeña */
+@media (max-width: 1100px) {
+  .content {
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+  }
+  .news {
+    grid-column: span 2;
+    max-height: 380px;
+  }
+  .gacha-container {
+    height: auto;
+    min-height: 380px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .page {
+    width: 94%;
+    padding: 20px;
+    margin: 20px auto;
+  }
+
+  .header {
+    gap: 12px;
+  }
+
+  .nav a {
+    padding: 7px 12px;
+    font-size: 11px;
+  }
+
+  .hero-chat {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .chat-box {
+    min-height: 280px;
+  }
+
+  .gacha-title {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  #gacha-img {
+    width: 110px;
+  }
+}
+
+/* Móvil + hamburguesa kawaii */
+@media (max-width: 768px) {
+  .page {
+    width: 96%;
+    padding: 14px;
+    margin: 12px auto;
+    border-radius: 28px;
+  }
+
+  .content {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .news {
+    grid-column: span 1;
+    max-height: 420px;
+  }
+
+  /* Header + hamburguesa */
+  .header {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .phone {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  /* Nav se convierte en panel flotante kawaii */
+  .nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: min(300px, 85vw);
+    height: 100dvh;
+    background: var(--white);
+    border: 4px double var(--pink-dark);
+    border-radius: 30px 0 0 30px;
+    box-shadow: -8px 0 0 rgba(0,0,0,0.08);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    padding: 70px 18px 30px;
+    gap: 6px;
+    z-index: 150;
+    transform: translateX(110%);
+    transition: transform .4s var(--ease-kawaii);
+    overflow-y: auto;
+  }
+
+  .nav-toggle:checked ~ .nav {
+    transform: translateX(0);
+  }
+
+  .nav a {
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    font-size: 14px;
+    border-radius: 18px;
+    white-space: normal;
+  }
+
+  .nav a:hover,
+  .nav a.active {
+    background: var(--pink-dark);
+    color: white;
+  }
+
+  /* Overlay suave al abrir menú */
+  .nav-toggle:checked ~ .nav-overlay {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(109, 47, 68, 0.25);
+    backdrop-filter: blur(2px);
+    z-index: 140;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .35s var(--ease-soft);
+  }
+
+  /* Hero */
+  .hero-chat {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    margin: 18px 0;
+  }
+
+  .hero-text {
+    left: 16px;
+    bottom: 16px;
+    right: 12px;
+  }
+
+  .hero-text h1 {
+    font-size: clamp(24px, 8vw, 42px);
+  }
+
+  .chat-box {
+    min-height: 260px;
+  }
+
+  .chat-box iframe {
+    height: 360px;
+  }
+
+  /* Kitchen / profile */
+  .profile-area {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .kitchen img {
+    width: 78%;
+    max-width: 280px;
+  }
+
+  .btn-special {
+    padding: 14px 22px;
+    font-size: 13px;
+  }
+
+  /* Gacha */
+  .gacha-container {
+    height: auto;
+    min-height: 340px;
+    padding: 12px;
+  }
+
+  .gacha-title {
+    font-size: 18px;
+    margin-bottom: 18px;
+  }
+
+  #gacha-img {
+    width: 100px;
+  }
+
+  .gacha-result {
+    margin-top: 20px;
+    font-size: 14px;
+  }
+
+  /* Specialty */
+  .specialty {
+    padding: 18px;
+  }
+
+  /* Botones */
+  .btn-horario,
+  .btns {
+    max-width: 100%;
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+
+  /* Float buttons - corrección para que no se salgan */
+  .shrine-float-btn {
+    bottom: 16px;
+    right: 12px;
+    left: auto;
+    padding: 7px 11px;
+    font-size: 14px;
+    gap: 6px;
+    max-width: calc(100vw - 24px);
+  }
+
+  .shrine-float-btn img {
+    width: 22px;
+    height: 22px;
+  }
+
+  .guest-float-btn {
+    bottom: 78px;
+    right: 12px;
+    left: auto;
+    padding: 5px 9px;
+    font-size: 14px;
+    gap: 5px;
+    max-width: calc(100vw - 24px);
+  }
+
+  .guest-float-btn img {
+    width: 22px;
+    height: 22px;
+  }
+
+  /* Marquee más pequeño */
+  .marquee-content {
+    font-size: 16px;
+  }
+
+  /* Footer */
+  footer {
+    padding: 24px 10px 16px;
+    margin-top: 36px;
+  }
+
+  .footer-nav {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}
+
+/* Móviles muy pequeños */
+@media (max-width: 420px) {
+  .page {
+    width: 98%;
+    padding: 12px;
+    border-radius: 22px;
+    margin: 8px auto;
+  }
+
+  .logo {
+    width: 38px;
+    height: 38px;
+  }
+
+  .logo img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .hamburger {
+    width: 44px;
+    height: 44px;
+  }
+
+  .nav {
+    width: min(280px, 88vw);
+    padding-top: 64px;
+  }
+
+  .hero-text h1 {
+    letter-spacing: 1px;
+  }
+
+  .kitchen img {
+    width: 90%;
+  }
+
+  .gacha-title {
+    font-size: 16px;
+  }
+
+  #gacha-img {
+    width: 90px;
+  }
+
+  .shrine-float-btn,
+  .guest-float-btn {
+    right: 10px;
+    max-width: calc(100vw - 20px);
+  }
+
+  .shrine-float-btn {
+    bottom: 14px;
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+
+  .guest-float-btn {
+    bottom: 70px;
+    padding: 4px 8px;
+    font-size: 13px;
+  }
+
+  .shrine-float-btn img,
+  .guest-float-btn img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+
+/* =========================================
+   BOTÓN FLOTANTE: VINILO GRANDE (ULTRA LLAMATIVO)
+   ========================================= */
+
+.vinyl-float-btn {
+  position: fixed;
+  bottom: 24px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  z-index: 9999; /* Máxima prioridad sobre cualquier capa */
+  
+  /* 1. Levitan suavemente arriba y abajo */
+  animation: floatSmooth 3s ease-in-out infinite;
+
+  /* 2. Borde blanco tipo sticker + Aura Neón que vibra */
+  filter: drop-shadow(2px 2px 0px var(--white)) 
+          drop-shadow(-2px -2px 0px var(--white)) 
+          drop-shadow(2px -2px 0px var(--white)) 
+          drop-shadow(-2px 2px 0px var(--white));
+  
+  transition: transform 0.3s var(--ease-kawaii);
+}
+
+/* --- Base del Vinilo --- */
+.vinyl-big {
+  position: relative;
+  width: 64px; /* Un poco más grande para mejor impacto */
+  height: 64px;
+  border-radius: 50%;
+  
+  /* Gradiente realista del disco */
+  background: radial-gradient(
+    circle,
+    #151515 0%,
+    #2a2a2a 20%,
+    #111 35%,
+    #3d3d3d 50%,
+    #111 65%,
+    #2a2a2a 80%,
+    #050505 100%
+  );
+  
+  border: 3.5px solid var(--pink-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Resplandor Neón constante + Rotación */
+  box-shadow: 0 0 15px rgba(229, 92, 138, 0.7);
+  animation: spinVinyl 4s linear infinite, glowPulse 2s ease-in-out infinite alternate;
+  overflow: hidden; /* Necesario para contener el brillo cruzado */
+}
+
+/* 🌟 EFECTO EXTRA: Destello de brillo diagonal (Sparkle) */
+.vinyl-big::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.6) 50%,
+    transparent 60%
+  );
+  animation: sparkleShine 3s infinite;
+  pointer-events: none;
+}
+
+/* Centro / Etiqueta rosa */
+.vinyl-label {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--pink-dark);
+  border: 2px solid var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.vinyl-hole {
+  width: 5px;
+  height: 5px;
+  background: var(--white);
+  border-radius: 50%;
+}
+
+/* --- Etiqueta de Texto con Pulso --- */
+.vinyl-text {
+  font-family: 'Silkscreen', cursive;
+  font-size: 9.5px;
+  color: var(--white);
+  background: var(--pink-dark);
+  border: 2px solid var(--white);
+  border-radius: 12px;
+  padding: 4px 10px;
+  box-shadow: 3px 3px 0px #000;
+  white-space: nowrap;
+  letter-spacing: 0.5px;
+  transition: background 0.2s ease, transform 0.2s ease, color 0.2s ease;
+}
+
+/* --- EFECTOS HOVER (Interacción al pasar el cursor) --- */
+.vinyl-float-btn:hover {
+  /* Se pausa la levitación para dar control */
+  animation-play-state: paused;
+  transform: scale(1.12) rotate(-3deg);
+}
+
+.vinyl-float-btn:hover .vinyl-big {
+  animation-duration: 0.8s, 0.5s; /* Gira súper rápido y vibra el brillo */
+  box-shadow: 0 0 25px rgba(229, 92, 138, 1);
+}
+
+.vinyl-float-btn:hover .vinyl-text {
+  background: var(--white);
+  color: var(--pink-dark);
+  border-color: var(--pink-dark);
+  box-shadow: 3px 3px 0px var(--pink-dark);
+}
+
+/* =========================================
+   ANIMACIONES (KEYFRAMES)
+   ========================================= */
+
+/* 1. Rotación del disco */
+@keyframes spinVinyl {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* 2. Levitación flotante de arriba a abajo */
+@keyframes floatSmooth {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* 3. Pulsación de luz Neón */
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 8px rgba(229, 92, 138, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(229, 92, 138, 0.9), 0 0 30px rgba(248, 182, 203, 0.6);
+  }
+}
+
+/* 4. Ráfaga de destello de luz cruzado */
+@keyframes sparkleShine {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(0deg);
+  }
+  20%, 100% {
+    transform: translateX(100%) translateY(100%) rotate(0deg);
+  }
+}
