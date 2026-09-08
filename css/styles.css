@@ -1,14 +1,21 @@
 /* =========================================
    NANNI-ARCHIVE - CSS OPTIMIZADO Y ORDENADO
+   (Paleta y efectos unificados con SHRINES.CSS)
    ========================================= */
 
 /* [1] VARIABLES Y RESET */
 :root {
-  --pink-bg: #f27ca5;
-  --pink-soft: #f8b6cb;
-  --pink-dark: #e55c8a;
+  /* Paleta tomada de shrines.css para que ambos estilos convivan igual */
+  --pink-main: #f06292;
+  --pink-dark: #d81b60;
+  --pink-deep: #880e4f;
+  --pink-soft: #f8bbd0;
+  --pink-light: #fce4ec;
+  --cream-bg: #fff8f9;
+  --yellow-accent: #ffe082;
+  --mint-accent: #a5d6a7;
+  --text: #4a1525;
   --white: #ffffff;
-  --text: #6d2f44;
   --ease-soft: cubic-bezier(.4, 0, .2, 1);
   --ease-kawaii: cubic-bezier(.34, 1.56, .64, 1);
 }
@@ -17,7 +24,7 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: var(--pink-bg);
+  background: var(--pink-main);
   background-image: radial-gradient(var(--pink-soft) 20%, transparent 20%),
                     radial-gradient(var(--pink-soft) 20%, transparent 20%);
   background-size: 10px 10px;
@@ -38,11 +45,11 @@ h1, h2, h3, .nav a, .phone, .btn, .btn-horario, .tagline, .gacha-title {
   width: 92%;
   max-width: 1200px;
   margin: 30px auto;
-  background: var(--white);
+  background: var(--cream-bg);
   padding: 25px;
-  border-radius: 40px;
+  border-radius: 30px;
   border: 4px double var(--pink-dark);
-  box-shadow: 12px 12px 0 rgba(0,0,0,0.1);
+  box-shadow: 8px 8px 0px var(--pink-soft), 14px 14px 0px var(--pink-main);
 }
 
 .content {
@@ -69,6 +76,7 @@ h1, h2, h3, .nav a, .phone, .btn, .btn-horario, .tagline, .gacha-title {
   display: grid;
   place-items: center;
   flex-shrink: 0;
+  border: 2px solid var(--pink-dark);
 }
 
 .logo img { width: 24px; height: 24px; }
@@ -91,7 +99,7 @@ h1, h2, h3, .nav a, .phone, .btn, .btn-horario, .tagline, .gacha-title {
   border-radius: 16px;
   cursor: pointer;
   gap: 6px;
-  box-shadow: 4px 4px 0 rgba(0,0,0,0.15);
+  box-shadow: 4px 4px 0px var(--pink-soft);
   transition: all .3s var(--ease-kawaii);
   z-index: 200;
   flex-shrink: 0;
@@ -109,8 +117,8 @@ h1, h2, h3, .nav a, .phone, .btn, .btn-horario, .tagline, .gacha-title {
 
 .hamburger:hover {
   transform: scale(1.08) rotate(-3deg);
-  box-shadow: 6px 6px 0 rgba(0,0,0,0.2);
-  background: var(--pink-soft);
+  box-shadow: 6px 6px 0px var(--pink-main);
+  background: var(--pink-light);
 }
 
 /* Animación al abrir */
@@ -146,7 +154,7 @@ h1, h2, h3, .nav a, .phone, .btn, .btn-horario, .tagline, .gacha-title {
 }
 
 .nav a:hover { animation: jelly .5s; }
-.nav a.active { background: var(--pink-dark); color: white; }
+.nav a.active { background: var(--pink-dark); color: var(--white); }
 
 .phone {
   text-decoration: none;
@@ -155,17 +163,18 @@ h1, h2, h3, .nav a, .phone, .btn, .btn-horario, .tagline, .gacha-title {
   text-align: right;
 }
 
-.phone span { font-size: 11px; opacity: .6; font-family: 'Poppins', sans-serif; }
+.phone span { font-size: 11px; opacity: .8; font-family: 'Poppins', sans-serif; color: var(--pink-deep); }
 
 /* Marquee moderno (reemplaza <marquee>) */
 .marquee-container {
   background: var(--pink-dark);
-  color: white;
+  color: var(--white);
   padding: 5px 0;
   margin: 10px 0;
   border-radius: 20px;
   overflow: hidden;
   white-space: nowrap;
+  border: 2px solid var(--pink-deep);
 }
 
 .marquee-content {
@@ -184,12 +193,12 @@ h1, h2, h3, .nav a, .phone, .btn, .btn-horario, .tagline, .gacha-title {
 /* [4] BOTONES FLOTANTES (Shrines + Guestbook) */
 .shrine-float-btn {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 30px;
+  right: 30px;
   background: var(--white);
   border: 3px solid var(--pink-dark);
-  border-radius: 50px;
-  padding: 10px 15px;
+  border-radius: 20px;
+  padding: 5px 5px;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -197,40 +206,19 @@ h1, h2, h3, .nav a, .phone, .btn, .btn-horario, .tagline, .gacha-title {
   color: var(--pink-dark);
   font-family: 'Silkscreen', cursive;
   font-size: 20px;
-  box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
+  box-shadow: 4px 4px 0px var(--pink-soft);
   z-index: 100;
   animation: float 1s ease-in-out infinite;
   max-width: calc(100vw - 40px);
+  transition: transform .25s var(--ease-kawaii), box-shadow .25s var(--ease-kawaii);
+}
+
+.shrine-float-btn:hover {
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 6px 8px 0px var(--pink-main);
 }
 
 .shrine-float-btn img { 
-  width: 30px; 
-  height: 30px; 
-  border-radius: 50%; 
-}
-
-.guest-float-btn {
-  position: fixed;
-  bottom: 100px;
-  right: 20px;
-  background: var(--white);
-  border: 3px solid var(--pink-dark);
-  border-radius: 50px;
-  padding: 5px 10px;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  text-decoration: none;
-  color: var(--pink-dark);
-  font-family: 'Silkscreen', cursive;
-  font-size: 20px;
-  box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
-  z-index: 100;
-  animation: float 1s ease-in-out infinite;
-  max-width: calc(100vw - 40px);
-}
-
-.guest-float-btn img { 
   width: 30px; 
   height: 30px; 
   border-radius: 50%; 
@@ -264,8 +252,8 @@ h1, h2, h3, .nav a, .phone, .btn, .btn-horario, .tagline, .gacha-title {
   bottom: 30px;
   left: 35px;
   right: 20px;
-  color: white;
-  text-shadow: 4px 4px 0 var(--pink-dark);
+  color: var(--white);
+  text-shadow: 4px 4px 0px var(--pink-dark);
   z-index: 2;
 }
 
@@ -283,41 +271,47 @@ h1, h2, h3, .nav a, .phone, .btn, .btn-horario, .tagline, .gacha-title {
 
 /* Chat box */
 .chat-box {
-  background: var(--pink-soft);
+  background: var(--pink-light);
   border-radius: 25px;
   padding: 12px;
-  box-shadow: 6px 6px 0 rgba(229,92,138,.25);
+  box-shadow: 6px 6px 0px var(--pink-soft);
   border: 2px solid var(--pink-dark);
   height: 100%;
   min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 /* [6] GACHA / DAILY FORTUNE */
 .gacha-container {
-  height: 420px;
   background: var(--white);
   border-radius: 20px;
-  padding: 15px;
   text-align: center;
+  height: 230px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid var(--pink-soft);
 }
 
 .gacha-title {
-  font-size: 24px;
   color: var(--pink-dark);
-  margin-bottom: 30px;
+  font-size: 18px;
+  margin-bottom: 8px;
 }
 
 .gacha-box {
   cursor: pointer;
   display: inline-block;
-  transition: transform .2s;
+  transition: transform .2s var(--ease-kawaii);
 }
 
 #gacha-img {
-  width: 125px;
   height: auto;
   image-rendering: pixelated;
   transition: filter .3s;
+  width: 80px;
 }
 
 .gacha-box:hover #gacha-img { 
@@ -330,18 +324,18 @@ h1, h2, h3, .nav a, .phone, .btn, .btn-horario, .tagline, .gacha-title {
 }
 
 .gacha-result {
-  height: 100px;
-  background: var(--pink-soft);
+  background: var(--pink-light);
   color: var(--text);
   border: 2px dashed var(--pink-dark);
   border-radius: 15px;
-  padding: 10px;
-  min-height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 15px;
-  margin-top: 30px;
+  height: auto;
+  min-height: 38px;
+  padding: 8px;
+  font-size: 12px;
+  margin-top: auto;
 }
 
 /* [7] SECCIONES DE CONTENIDO */
@@ -351,6 +345,7 @@ h1, h2, h3, .nav a, .phone, .btn, .btn-horario, .tagline, .gacha-title {
   color: var(--pink-dark);
   letter-spacing: 2px;
   margin-bottom: 15px;
+  text-shadow: 2px 2px 0px var(--pink-soft);
 }
 
 .kitchen { text-align: center; }
@@ -360,30 +355,31 @@ h1, h2, h3, .nav a, .phone, .btn, .btn-horario, .tagline, .gacha-title {
   color: var(--text);
   line-height: 1.6;
   text-align: center;
-  background: white;
+  background: var(--white);
   padding: 15px;
   border-left: 4px solid var(--pink-dark);
   border-right: 4px solid var(--pink-dark);
   font-size: 14px;
   margin-bottom: 15px;
+  border-radius: 12px;
 }
 
 .intro-text b { 
   color: var(--pink-dark); 
-  text-shadow: 1px 1px 0 var(--pink-soft); 
+  text-shadow: 1px 1px 0px var(--pink-soft); 
 }
 
 .kitchen img {
   width: 45%;
   max-width: 100%;
   border-radius: 20px;
-  margin: 15px 0;
   border: 3px solid var(--pink-soft);
   animation: float 1s ease-in-out infinite;
+  margin: 0 !important;
 }
 
 .specialty {
-  background: var(--pink-soft);
+  background: var(--pink-light);
   border-radius: 30px;
   padding: 25px;
   text-align: center;
@@ -395,6 +391,7 @@ h1, h2, h3, .nav a, .phone, .btn, .btn-horario, .tagline, .gacha-title {
   width: 100%;
   border-radius: 20px;
   margin: 15px 0;
+  border: 2px solid var(--pink-soft);
 }
 
 /* Contenedor para poner el botón al lado de la imagen */
@@ -406,37 +403,31 @@ h1, h2, h3, .nav a, .phone, .btn, .btn-horario, .tagline, .gacha-title {
   margin-top: 15px;
 }
 
-/* Ajuste de la imagen para que no ocupe todo el ancho */
-.kitchen img {
-  width: 45%; 
-  margin: 0 !important;
-}
-
 /* [8] BOTONES */
 .btn, 
 .btn-horario, 
 .btns {
   display: inline-block;
   background: var(--pink-dark);
-  color: white;
+  color: var(--white);
   text-decoration: none;
   font-family: 'Silkscreen', cursive;
   border: 2px solid var(--white);
-  transition: all .01s var(--ease-soft);
+  transition: all .25s var(--ease-kawaii);
 }
 
 .btn {
   padding: 10px 22px;
   border-radius: 30px;
   font-size: 12px;
-  box-shadow: 4px 4px 0 var(--text);
+  box-shadow: 4px 4px 0px var(--text);
   animation: glow 1s ease-in-out infinite;
   margin: 10px;
 }
 
 .btn:hover { 
-  transform: translate(-2px, -2px); 
-  box-shadow: 6px 6px 0 var(--text); 
+  transform: translateY(-3px) scale(1.02); 
+  box-shadow: 6px 6px 0px var(--text); 
 }
 
 .btn-horario, 
@@ -447,20 +438,22 @@ h1, h2, h3, .nav a, .phone, .btn, .btn-horario, .tagline, .gacha-title {
   width: 100%;
   max-width: 350px;
   text-align: center;
-  border-top: 4px solid #ff9eb5;
-  border-left: 4px solid #ff9eb5;
-  border-right: 4px solid #9c3a5a;
-  border-bottom: 4px solid #9c3a5a;
-  box-shadow: 6px 6px 0 rgba(0,0,0,0.2);
+  border-top: 4px solid var(--pink-main);
+  border-left: 4px solid var(--pink-main);
+  border-right: 4px solid var(--pink-deep);
+  border-bottom: 4px solid var(--pink-deep);
+  box-shadow: 6px 6px 0px var(--pink-soft);
   position: relative;
 }
 
-.btn-horario:hover { 
+.btn-horario:hover, 
+.btns:hover { 
   transform: translate(-2px, -2px); 
-  box-shadow: 8px 8px 0 var(--text); 
+  box-shadow: 8px 8px 0px var(--pink-main); 
 }
 
-.btn-horario:active { 
+.btn-horario:active, 
+.btns:active { 
   transform: translate(4px, 4px); 
   box-shadow: 0 0 0; 
 }
@@ -470,12 +463,14 @@ h1, h2, h3, .nav a, .phone, .btn, .btn-horario, .tagline, .gacha-title {
   position: absolute;
   top: -15px;
   right: -10px;
-  background: #fff;
-  color: var(--pink-dark);
+  background: var(--yellow-accent);
+  color: var(--pink-deep);
   font-size: 10px;
   padding: 4px 10px;
   border: 2px solid var(--pink-dark);
-  box-shadow: 4px 4px 0 rgba(0,0,0,0.1);
+  border-radius: 8px;
+  box-shadow: 2px 2px 0px var(--pink-dark);
+  font-family: 'Silkscreen', cursive;
   animation: pixelBounce .3s infinite alternate steps(2);
 }
 
@@ -486,7 +481,7 @@ h1, h2, h3, .nav a, .phone, .btn, .btn-horario, .tagline, .gacha-title {
   border: 3px solid var(--white);
   padding: 15px 25px;
   font-size: 14px;
-  box-shadow: 6px 6px 0 var(--text);
+  box-shadow: 6px 6px 0px var(--pink-deep);
   animation: heartbeat 1.5s ease-in-out infinite !important;
   position: relative;
 }
@@ -500,7 +495,7 @@ h1, h2, h3, .nav a, .phone, .btn, .btn-horario, .tagline, .gacha-title {
 
 .news-item {
   background: var(--white);
-  border: 3px outset var(--pink-soft);
+  border: 3px solid var(--pink-soft);
   border-radius: 18px;
   padding: 14px 16px;
   margin-bottom: 14px;
@@ -511,9 +506,10 @@ h1, h2, h3, .nav a, .phone, .btn, .btn-horario, .tagline, .gacha-title {
 }
 
 .news-item:hover {
-  background: rgba(248,182,203, 0.1);
-  transform: scale(1.004);
-  box-shadow: 6px 6px 0 var(--pink-soft);
+  background: var(--pink-light);
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 6px 6px 0px var(--pink-soft);
+  border-color: var(--pink-dark);
 }
 
 .news-item time {
@@ -525,8 +521,8 @@ h1, h2, h3, .nav a, .phone, .btn, .btn-horario, .tagline, .gacha-title {
 
 /* Scrollbar personalizada */
 .news::-webkit-scrollbar { width: 5px; }
-.news::-webkit-scrollbar-track { background: var(--pink-soft); border-radius: 10px; }
-.news::-webkit-scrollbar-thumb { background: var(--pink-dark); border-radius: 10px; }
+.news::-webkit-scrollbar-track { background: var(--pink-light); border-radius: 10px; }
+.news::-webkit-scrollbar-thumb { background: var(--pink-main); border-radius: 10px; }
 
 /* [10] FOOTER */
 footer {
@@ -534,7 +530,7 @@ footer {
   padding: 30px 15px 20px 15px;
   margin-top: 50px;
   border-top: 2px dashed var(--pink-soft);
-  background: linear-gradient(to bottom, transparent, #fffafb);
+  background: linear-gradient(to bottom, transparent, var(--cream-bg));
   color: var(--text);
   font-size: 12px;
 }
@@ -581,6 +577,7 @@ footer {
   position: relative;
   overflow: hidden;
   transition: all 0.3s var(--ease-kawaii);
+  box-shadow: 2px 2px 0px var(--pink-soft);
 }
 
 .icon-map {
@@ -591,8 +588,8 @@ footer {
 .sitemap-link:hover {
   background: var(--pink-dark);
   color: var(--white);
-  transform: scale(1.1) rotate(-2deg);
-  box-shadow: 0 0 15px rgba(229, 92, 138, 0.5);
+  transform: translateY(-2px) scale(1.06) rotate(-2deg);
+  box-shadow: 4px 4px 0px var(--pink-main);
 }
 
 .sitemap-link:hover .icon-map {
@@ -635,7 +632,196 @@ footer {
   user-select: none;
 }
 
-/* [11] ANIMACIONES */
+/* [11] NOVEDADES (ventana de actualizaciones) */
+.novedades-window{
+  width:100%;
+  background:var(--white);
+  border:2px solid var(--pink-dark);
+  border-radius:20px;
+  overflow:hidden;
+  flex:1;
+  display:flex;
+  flex-direction:column;
+}
+.novedades-titlebar{
+  background:var(--pink-dark);
+  padding:8px 15px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-shrink:0;
+}
+.novedades-titlebar span{
+  font-family:'Silkscreen',cursive;
+  font-size:14px;
+  color:var(--white);
+  letter-spacing:.5px;
+}
+.titlebar-dots{ display:flex; gap:3px; }
+.titlebar-dots i{
+  width:8px;height:8px;border-radius:50%;
+  background:rgba(255,255,255,.55);
+  display:block;
+}
+.novedades-body{
+  height: 140px; /* espacio para aproximadamente 3 actualizaciones */
+  overflow-y: auto;
+  padding: 6px 10px 8px;
+}
+.novedades-body::-webkit-scrollbar{width:4px;}
+.novedades-body::-webkit-scrollbar-track{background:var(--pink-light);border-radius:10px;}
+.novedades-body::-webkit-scrollbar-thumb{background:var(--pink-dark);border-radius:10px;}
+.update-row{
+  display:flex;align-items:flex-start;gap:6px;
+  padding:5px 0;
+  border-bottom:1px solid var(--pink-soft);
+  text-decoration:none;
+}
+.update-row:last-child{border-bottom:none;}
+.update-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--pink-dark);
+  margin-top:4px;flex-shrink:0;
+}
+.tag-updated .update-dot{background:var(--mint-accent);}
+.tag-fixed .update-dot{background:var(--pink-deep);}
+.update-row-text{min-width:0;}
+.update-row-text p{font-size:11px;color:var(--text);line-height:1.3;}
+.update-row-text time{
+  font-size:8px;color:var(--pink-dark);font-weight:600;
+  letter-spacing:.3px;display:block;margin-top:1px;
+}
+.tag-updated .update-row-text time{color:#3f8a80;}
+.tag-fixed .update-row-text time{color:var(--pink-deep);}
+a.update-row .update-row-text p{color:var(--pink-dark);font-weight:600;}
+a.update-row:hover .update-row-text p{text-decoration:underline;}
+
+/* [12] BOTÓN FLOTANTE: VINILO GRANDE (ULTRA LLAMATIVO) */
+.vinyl-float-btn {
+  position: fixed;
+  bottom: 24px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  z-index: 9999; /* Máxima prioridad sobre cualquier capa */
+  
+  /* 1. Levitan suavemente arriba y abajo */
+  animation: floatSmooth 3s ease-in-out infinite;
+
+  /* 2. Borde blanco tipo sticker + Aura Neón que vibra */
+  filter: drop-shadow(2px 2px 0px var(--white)) 
+          drop-shadow(-2px -2px 0px var(--white)) 
+          drop-shadow(2px -2px 0px var(--white)) 
+          drop-shadow(-2px 2px 0px var(--white));
+  
+  transition: transform 0.3s var(--ease-kawaii);
+}
+
+/* --- Base del Vinilo --- */
+.vinyl-big {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  
+  /* Gradiente realista del disco */
+  background: radial-gradient(
+    circle,
+    #151515 0%,
+    #2a2a2a 20%,
+    #111 35%,
+    #3d3d3d 50%,
+    #111 65%,
+    #2a2a2a 80%,
+    #050505 100%
+  );
+  
+  border: 3.5px solid var(--pink-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Resplandor Neón constante + Rotación */
+  box-shadow: 0 0 15px rgba(216, 27, 96, 0.7);
+  animation: spinVinyl 4s linear infinite, glowPulse 2s ease-in-out infinite alternate;
+  overflow: hidden;
+}
+
+/* Destello de brillo diagonal (Sparkle) */
+.vinyl-big::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.6) 50%,
+    transparent 60%
+  );
+  animation: sparkleShine 3s infinite;
+  pointer-events: none;
+}
+
+/* Centro / Etiqueta rosa */
+.vinyl-label {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--pink-dark);
+  border: 2px solid var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.vinyl-hole {
+  width: 5px;
+  height: 5px;
+  background: var(--white);
+  border-radius: 50%;
+}
+
+/* --- Etiqueta de Texto con Pulso --- */
+.vinyl-text {
+  font-family: 'Silkscreen', cursive;
+  font-size: 9.5px;
+  color: var(--white);
+  background: var(--pink-dark);
+  border: 2px solid var(--white);
+  border-radius: 12px;
+  padding: 4px 10px;
+  box-shadow: 3px 3px 0px var(--pink-deep);
+  white-space: nowrap;
+  letter-spacing: 0.5px;
+  transition: background 0.2s var(--ease-kawaii), transform 0.2s var(--ease-kawaii), color 0.2s var(--ease-kawaii);
+}
+
+/* --- EFECTOS HOVER (Interacción al pasar el cursor) --- */
+.vinyl-float-btn:hover {
+  animation-play-state: paused;
+  transform: scale(1.12) rotate(-3deg);
+}
+
+.vinyl-float-btn:hover .vinyl-big {
+  animation-duration: 0.8s, 0.5s;
+  box-shadow: 0 0 25px rgba(216, 27, 96, 1);
+}
+
+.vinyl-float-btn:hover .vinyl-text {
+  background: var(--white);
+  color: var(--pink-dark);
+  border-color: var(--pink-dark);
+  box-shadow: 3px 3px 0px var(--pink-dark);
+}
+
+/* [13] ANIMACIONES (KEYFRAMES) */
 @keyframes pixelBounce { 
   from { transform: translateY(0); } 
   to { transform: translateY(-10px); } 
@@ -658,8 +844,8 @@ footer {
 }
 
 @keyframes glow { 
-  0%, 100% { box-shadow: 0 0 0 rgba(229,92,138,.4); } 
-  50% { box-shadow: 0 0 25px rgba(229,92,138,.6); } 
+  0%, 100% { box-shadow: 0 0 0 rgba(216, 27, 96, .4); } 
+  50% { box-shadow: 0 0 25px rgba(216, 27, 96, .6); } 
 }
 
 @keyframes wiggle { 
@@ -687,8 +873,48 @@ footer {
   to { transform: translateY(-3px); }
 }
 
+/* Rotación del disco */
+@keyframes spinVinyl {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Levitación flotante de arriba a abajo */
+@keyframes floatSmooth {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Pulsación de luz Neón */
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 8px rgba(216, 27, 96, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(216, 27, 96, 0.9), 0 0 30px rgba(248, 187, 208, 0.6);
+  }
+}
+
+/* Ráfaga de destello de luz cruzado */
+@keyframes sparkleShine {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(0deg);
+  }
+  20%, 100% {
+    transform: translateX(100%) translateY(100%) rotate(0deg);
+  }
+}
+
 /* =========================================
    RESPONSIVE
+   (breakpoints 1100/900/768 consolidados: se
+   fusionaron los mini-bloques repetidos del
+   final del archivo, dejando siempre los
+   valores que estaban más abajo)
    ========================================= */
 
 /* Tablet grande / laptop pequeña */
@@ -703,7 +929,7 @@ footer {
   }
   .gacha-container {
     height: auto;
-    min-height: 380px;
+    min-height: 190px;
   }
 }
 
@@ -730,7 +956,7 @@ footer {
   }
 
   .chat-box {
-    min-height: 280px;
+    min-height: auto;
   }
 
   .gacha-title {
@@ -741,6 +967,10 @@ footer {
   #gacha-img {
     width: 110px;
   }
+
+  .gacha-container {
+    min-height: 170px;
+  }
 }
 
 /* Móvil + hamburguesa kawaii */
@@ -749,7 +979,7 @@ footer {
     width: 96%;
     padding: 14px;
     margin: 12px auto;
-    border-radius: 28px;
+    border-radius: 24px;
   }
 
   .content {
@@ -789,7 +1019,7 @@ footer {
     background: var(--white);
     border: 4px double var(--pink-dark);
     border-radius: 30px 0 0 30px;
-    box-shadow: -8px 0 0 rgba(0,0,0,0.08);
+    box-shadow: -8px 0 0px var(--pink-soft);
     flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;
@@ -817,7 +1047,7 @@ footer {
   .nav a:hover,
   .nav a.active {
     background: var(--pink-dark);
-    color: white;
+    color: var(--white);
   }
 
   /* Overlay suave al abrir menú */
@@ -855,7 +1085,7 @@ footer {
   }
 
   .chat-box {
-    min-height: 260px;
+    min-height: auto;
   }
 
   .chat-box iframe {
@@ -881,17 +1111,17 @@ footer {
   /* Gacha */
   .gacha-container {
     height: auto;
-    min-height: 340px;
-    padding: 12px;
+    min-height: 150px;
+    padding: 10px;
   }
 
   .gacha-title {
-    font-size: 18px;
-    margin-bottom: 18px;
+    font-size: 16px;
+    margin-bottom: 8px;
   }
 
   #gacha-img {
-    width: 100px;
+    width: 80px;
   }
 
   .gacha-result {
@@ -965,7 +1195,7 @@ footer {
   .page {
     width: 98%;
     padding: 12px;
-    border-radius: 22px;
+    border-radius: 20px;
     margin: 8px auto;
   }
 
@@ -1008,7 +1238,7 @@ footer {
   .shrine-float-btn,
   .guest-float-btn {
     right: 10px;
-    max-width: calc(100vw - 20px);
+    max-width: calc(100vw - 30px);
   }
 
   .shrine-float-btn {
@@ -1032,170 +1262,85 @@ footer {
 
 
 /* =========================================
-   BOTÓN FLOTANTE: VINILO GRANDE (ULTRA LLAMATIVO)
+   OVERLAY FLOTANTE DE DETALLE (SÓLO MÓVIL)
    ========================================= */
-
-.vinyl-float-btn {
-  position: fixed;
-  bottom: 24px;
-  left: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  text-decoration: none;
-  z-index: 9999; /* Máxima prioridad sobre cualquier capa */
-  
-  /* 1. Levitan suavemente arriba y abajo */
-  animation: floatSmooth 3s ease-in-out infinite;
-
-  /* 2. Borde blanco tipo sticker + Aura Neón que vibra */
-  filter: drop-shadow(2px 2px 0px var(--white)) 
-          drop-shadow(-2px -2px 0px var(--white)) 
-          drop-shadow(2px -2px 0px var(--white)) 
-          drop-shadow(-2px 2px 0px var(--white));
-  
-  transition: transform 0.3s var(--ease-kawaii);
-}
-
-/* --- Base del Vinilo --- */
-.vinyl-big {
-  position: relative;
-  width: 64px; /* Un poco más grande para mejor impacto */
-  height: 64px;
-  border-radius: 50%;
-  
-  /* Gradiente realista del disco */
-  background: radial-gradient(
-    circle,
-    #151515 0%,
-    #2a2a2a 20%,
-    #111 35%,
-    #3d3d3d 50%,
-    #111 65%,
-    #2a2a2a 80%,
-    #050505 100%
-  );
-  
-  border: 3.5px solid var(--pink-dark);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-  /* Resplandor Neón constante + Rotación */
-  box-shadow: 0 0 15px rgba(229, 92, 138, 0.7);
-  animation: spinVinyl 4s linear infinite, glowPulse 2s ease-in-out infinite alternate;
-  overflow: hidden; /* Necesario para contener el brillo cruzado */
-}
-
-/* 🌟 EFECTO EXTRA: Destello de brillo diagonal (Sparkle) */
-.vinyl-big::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    60deg,
-    transparent 40%,
-    rgba(255, 255, 255, 0.6) 50%,
-    transparent 60%
-  );
-  animation: sparkleShine 3s infinite;
-  pointer-events: none;
-}
-
-/* Centro / Etiqueta rosa */
-.vinyl-label {
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background: var(--pink-dark);
-  border: 2px solid var(--white);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
-}
-
-.vinyl-hole {
-  width: 5px;
-  height: 5px;
-  background: var(--white);
-  border-radius: 50%;
-}
-
-/* --- Etiqueta de Texto con Pulso --- */
-.vinyl-text {
-  font-family: 'Silkscreen', cursive;
-  font-size: 9.5px;
-  color: var(--white);
-  background: var(--pink-dark);
-  border: 2px solid var(--white);
-  border-radius: 12px;
-  padding: 4px 10px;
-  box-shadow: 3px 3px 0px #000;
-  white-space: nowrap;
-  letter-spacing: 0.5px;
-  transition: background 0.2s ease, transform 0.2s ease, color 0.2s ease;
-}
-
-/* --- EFECTOS HOVER (Interacción al pasar el cursor) --- */
-.vinyl-float-btn:hover {
-  /* Se pausa la levitación para dar control */
-  animation-play-state: paused;
-  transform: scale(1.12) rotate(-3deg);
-}
-
-.vinyl-float-btn:hover .vinyl-big {
-  animation-duration: 0.8s, 0.5s; /* Gira súper rápido y vibra el brillo */
-  box-shadow: 0 0 25px rgba(229, 92, 138, 1);
-}
-
-.vinyl-float-btn:hover .vinyl-text {
-  background: var(--white);
-  color: var(--pink-dark);
-  border-color: var(--pink-dark);
-  box-shadow: 3px 3px 0px var(--pink-dark);
-}
-
-/* =========================================
-   ANIMACIONES (KEYFRAMES)
-   ========================================= */
-
-/* 1. Rotación del disco */
-@keyframes spinVinyl {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-/* 2. Levitación flotante de arriba a abajo */
-@keyframes floatSmooth {
-  0%, 100% {
-    transform: translateY(0px);
+@media (max-width: 960px) {
+  /* Convierte la sección de detalle en un popup que cubre la pantalla */
+  #shrine-detail:not(:empty) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100dvh;
+    background: rgba(109, 47, 68, 0.6); /* Fondo semitransparente rosa oscuro */
+    backdrop-filter: blur(4px);          /* Efecto borroso kawaii */
+    z-index: 10000;                      /* Por encima de absolutamente todo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    overflow-y: auto;
+    animation: fadeInModal 0.25s var(--ease-kawaii);
   }
-  50% {
-    transform: translateY(-10px);
+
+  /* Ajusta la tarjeta interna para que quepa bien en el centro */
+  #shrine-detail .detail-card {
+    width: 100%;
+    max-width: 450px;
+    max-height: 90vh;
+    overflow-y: auto;
+    margin: auto;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    border: 4px double var(--pink-dark);
   }
 }
 
-/* 3. Pulsación de luz Neón */
-@keyframes glowPulse {
-  0% {
-    box-shadow: 0 0 8px rgba(229, 92, 138, 0.5);
+@keyframes fadeInModal {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
   }
-  100% {
-    box-shadow: 0 0 20px rgba(229, 92, 138, 0.9), 0 0 30px rgba(248, 182, 203, 0.6);
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
-/* 4. Ráfaga de destello de luz cruzado */
-@keyframes sparkleShine {
-  0% {
-    transform: translateX(-100%) translateY(-100%) rotate(0deg);
+
+/* ==========================================================================
+   ✦ TRANSICIÓN SUAVE ENTRE PÁGINAS (FADE)
+   ========================================================================== */
+
+/* Estado inicial al cargar: animación de entrada */
+body {
+  animation: fadeInPage 0.4s ease-in-out forwards;
+}
+
+/* Clase que aplicará JS justo antes de cambiar de página */
+body.page-is-exiting {
+  animation: fadeOutPage 0.3s ease-in-out forwards;
+}
+
+/* Definición de la aparición suave */
+@keyframes fadeInPage {
+  from {
+    opacity: 0;
+    transform: translateY(6px); /* Ligero desplazamiento hacia arriba */
   }
-  20%, 100% {
-    transform: translateX(100%) translateY(100%) rotate(0deg);
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Definición de la desaparición suave */
+@keyframes fadeOutPage {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-6px);
   }
 }
