@@ -35,7 +35,7 @@
 <nav class="nav">
 
 <a href="https://nanni-archive.neocities.org/" target="_self">HOME</a>
-  <a href="https://nanni-archive.neocities.org/aboutme" target="_self">ABOUT ME</a>
+<a href="https://nanni-archive.neocities.org/aboutme" target="_self">ABOUT ME</a>
 <a href="https://nanni-archive.neocities.org/recomendaciones.html" target="_self">RECs</a>
 <a href="https://nanni-archive.neocities.org/blogs.html" target="_self">BLOGS</a>
 <a href="https://nanni-archive.neocities.org/diario.html" target="_self">DIARY</a>
@@ -109,13 +109,9 @@
 
   </aside>
 
-  <main class="guest-feed">
-
-    <div id="guest-list">
-       ✦ loading messages... ✦
-    </div>
-
-  </main>
+ <main class="guest-feed" id="guest-list">
+  <div class="loading-msg">✦ loading messages... ✦</div>
+</main>
 
 </div>
 
@@ -217,7 +213,9 @@
 
 </div>
 
-<button id="restore-btn" class="retro-player-mini" style="display:none;">🎵</button>
+<button id="restore-btn" class="retro-player-mini" style="display:none;">
+  <span class="mini-icon">🎵</span> Player
+</button>
 <script src="js/guest.js"></script>
 
 
