@@ -1,6 +1,4 @@
-/* =========================================
-   GUESTBOOK.CSS — Versión Final Shrines
-   ========================================= */
+/* GUESTBOOK.CSS */
 
 :root {
   --pink-main: #f06292;
@@ -15,15 +13,12 @@
   --white: #ffffff;
 }
 
-/* RESET DEFENSIVO */
 .guest-layout *,
 .retro-player * {
   box-sizing: border-box;
 }
 
-/* ===============================
-   HERO
-=============================== */
+/* HERO */
 
 .guest-hero {
   text-align: center;
@@ -83,24 +78,20 @@
   font-weight: bold;
 }
 
-/* ===============================
-   LAYOUT PRINCIPAL (Centrado y equilibrado)
-=============================== */
+/* LAYOUT PRINCIPAL */
 
 .guest-layout {
   display: grid;
-  grid-template-columns: 300px minmax(0, 1fr); 
+  grid-template-columns: 300px minmax(0, 1fr);
   gap: 28px;
   align-items: start;
   width: 100%;
-  max-width: 1050px; /* Ancho máximo controlado para centrar todo el bloque con márgenes simétricos */
+  max-width: 1050px;
   margin: 0 auto 40px;
   padding: 0 20px;
 }
 
-/* ===============================
-   FORMULARIO (Sidebar Fijo)
-=============================== */
+/* FORMULARIO */
 
 .guest-form-section {
   position: sticky;
@@ -119,7 +110,6 @@
   position: relative;
 }
 
-/* Ojito/Grommet decorativo superior */
 .guest-form-wrapper::before {
   content: '';
   position: absolute;
@@ -233,14 +223,11 @@
   font-style: italic;
 }
 
-/* ===============================
-   FEED DE MENSAJES (2 Columnas Compactas)
-=============================== */
+/* FEED DE MENSAJES */
 
 .guest-feed {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px;
+  columns: 2;
+  column-gap: 20px;
   align-content: start;
 }
 
@@ -259,11 +246,11 @@
   box-shadow: 4px 4px 0px var(--pink-soft);
 }
 
-/* ===============================
-   TARJETA DE MENSAJE (Efecto Photocard)
-=============================== */
+/* TARJETA DE MENSAJE */
 
 .guest-card {
+  break-inside: avoid;
+  margin-bottom: 20px;
   position: relative;
   background: var(--pink-light);
   border: 3px solid var(--pink-dark);
@@ -278,7 +265,6 @@
   gap: 8px;
 }
 
-/* Destello holográfico Shrines */
 .guest-card::before {
   content: '';
   position: absolute;
@@ -351,7 +337,6 @@
   width: 100%;
 }
 
-/* LINK DEL SITIO DESTACADO (ESTILO BOTÓN / BADGE) */
 .guest-name a {
   display: inline-flex;
   align-items: center;
@@ -421,9 +406,7 @@
   border: 1.5px solid var(--pink-soft);
 }
 
-/* ===============================
-   REPLY — ESTILO TARJETA ID / BADGE
-=============================== */
+/* REPLY */
 
 .guest-reply {
   position: relative;
@@ -439,7 +422,6 @@
   box-shadow: 2px 2px 0px var(--pink-soft);
 }
 
-/* Hoyo de gafete decorativo */
 .guest-reply::before {
   content: "";
   position: absolute;
@@ -489,19 +471,13 @@
   color: var(--pink-main);
 }
 
-/* ===============================
-   ANIMACIÓN ENTRADA KAWAII
-=============================== */
-
 @keyframes guestAppear {
   0% { opacity: 0; transform: translateY(15px) scale(.92); }
   60% { transform: translateY(-3px) scale(1.02); }
   100% { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-/* ===============================
-   POPUP MODAL
-=============================== */
+/* POPUP MODAL */
 
 .guest-popup {
   position: fixed;
@@ -577,9 +553,7 @@
   box-shadow: 4px 4px 0px var(--pink-deep);
 }
 
-/* ===============================
-   STAMPS
-=============================== */
+/* STAMPS */
 
 .stamps-section {
   display: flex;
@@ -600,32 +574,50 @@
   transform: scale(1.1) rotate(3deg);
 }
 
-/* ===============================================
-   MUSIC PLAYER — RETRO (Fijo en pantalla)
-=================================================== */
+/* RETRO PLAYER — FIJO A LA ESQUINA DE LA PANTALLA */
 
 .retro-player {
   position: fixed !important;
   right: 25px !important;
   bottom: 25px !important;
-  width: 310px;
+  left: auto !important;
+  top: auto !important;
+
+  width: 310px !important;
+  max-width: 310px !important;
+  min-width: 310px !important;
+
   background: var(--cream-bg);
   border: 3px solid var(--pink-dark);
   border-radius: 22px;
-  box-shadow: 6px 6px 0px var(--pink-soft), 10px 10px 0px var(--pink-main);
+  box-shadow: 6px 6px 0 var(--pink-soft), 10px 10px 0 var(--pink-main);
   overflow: hidden;
-  z-index: 99999;
+  z-index: 999999 !important;
+
   font-family: 'Poppins', sans-serif;
   user-select: none;
   padding: 12px 14px 14px;
+
+  touch-action: none;
+  will-change: transform;
+  transform: translate(0, 0);
+}
+
+.retro-player * {
+  box-sizing: border-box;
 }
 
 .player-drag {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  cursor: move;
+  cursor: grab;
   margin-bottom: 8px;
+  user-select: none;
+}
+
+.player-drag:active {
+  cursor: grabbing;
 }
 
 .drag-dots {
@@ -648,7 +640,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: .2s ease;
+  transition: 0.2s ease;
 }
 
 #close-btn:hover {
@@ -713,7 +705,7 @@
 
 @keyframes statusBlink {
   0%, 100% { opacity: 1; }
-  50% { opacity: .3; }
+  50% { opacity: 0.3; }
 }
 
 .screen-title {
@@ -746,7 +738,7 @@
   width: 0%;
   height: 100%;
   background: #2e7d32;
-  transition: width .3s linear;
+  transition: width 0.3s linear;
 }
 
 .player-labels {
@@ -789,27 +781,27 @@
   border: 2px solid var(--pink-dark);
   border-radius: 10px;
   background: var(--pink-light);
-  box-shadow: 2px 2px 0px var(--pink-soft);
+  box-shadow: 2px 2px 0 var(--pink-soft);
   cursor: pointer;
   font-size: 12px;
   color: var(--pink-deep);
-  transition: all .15s ease;
+  transition: all 0.15s ease;
 }
 
 .chrome-btn:hover:not(:disabled) {
   background: var(--yellow-accent);
   transform: translateY(-1px);
-  box-shadow: 3px 3px 0px var(--pink-dark);
+  box-shadow: 3px 3px 0 var(--pink-dark);
 }
 
 .chrome-btn:active:not(:disabled) {
   transform: translateY(1px);
-  box-shadow: 1px 1px 0px var(--pink-dark);
+  box-shadow: 1px 1px 0 var(--pink-dark);
 }
 
 .chrome-btn:disabled {
   cursor: not-allowed;
-  opacity: .45;
+  opacity: 0.45;
 }
 
 .chrome-btn-main {
@@ -831,7 +823,7 @@
     transparent 2px,
     transparent 5px
   );
-  opacity: .8;
+  opacity: 0.8;
   margin-bottom: 8px;
 }
 
@@ -850,30 +842,58 @@
   cursor: pointer;
 }
 
+/* BOTON PARA REABRIR EL PLAYER */
+
 .retro-player-mini {
   position: fixed !important;
   bottom: 25px !important;
   right: 25px !important;
-  border: 2px solid var(--pink-dark);
-  background: var(--yellow-accent);
+  left: auto !important;
+  z-index: 999999 !important;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  border: 2.5px solid var(--pink-dark);
+  background: linear-gradient(180deg, var(--yellow-accent), #ffd15a);
   color: var(--pink-deep);
-  padding: 10px 16px;
+  padding: 13px 22px;
   border-radius: 50px;
+
   font-family: 'Silkscreen', cursive;
   font-size: 11px;
+  letter-spacing: .5px;
   cursor: pointer;
-  box-shadow: 4px 4px 0px var(--pink-dark);
-  z-index: 99999;
+
+  box-shadow: 4px 4px 0 var(--pink-dark);
+  animation: miniPulse 2.2s ease-in-out infinite;
+  transition: all .2s cubic-bezier(.34,1.56,.64,1);
+}
+
+.retro-player-mini .mini-icon {
+  font-size: 15px;
+}
+
+@keyframes miniPulse {
+  0%, 100% { box-shadow: 4px 4px 0 var(--pink-dark); }
+  50% { box-shadow: 4px 4px 0 var(--pink-dark), 0 0 0 7px rgba(240, 98, 146, .28); }
 }
 
 .retro-player-mini:hover {
-  background: var(--pink-main);
+  background: linear-gradient(180deg, var(--pink-main), var(--pink-dark));
   color: var(--white);
+  transform: translateY(-4px) scale(1.06);
+  box-shadow: 6px 8px 0 var(--pink-deep);
+  animation-play-state: paused;
 }
 
-/* ===============================
-   RESPONSIVE
-=============================== */
+.retro-player-mini:active {
+  transform: translateY(1px) scale(0.97);
+  box-shadow: 1px 1px 0 var(--pink-dark);
+}
+
+/* RESPONSIVE */
 
 @media (max-width: 960px) {
   .guest-layout {
@@ -891,7 +911,7 @@
 
 @media (max-width: 650px) {
   .guest-feed {
-    grid-template-columns: 1fr; 
+    columns: 1;
   }
 
   .guest-hero h1 {
@@ -903,8 +923,24 @@
   }
 
   .retro-player {
-    width: 270px;
-    right: 12px;
-    bottom: 12px;
+    width: 270px !important;
+    max-width: 270px !important;
+    min-width: 270px !important;
+    right: 12px !important;
+    bottom: 12px !important;
+  }
+
+  .retro-player-mini {
+    right: 12px !important;
+    bottom: 12px !important;
+    padding: 11px 18px;
+  }
+}
+
+@media (max-width: 380px) {
+  .retro-player {
+    width: 250px !important;
+    max-width: 250px !important;
+    min-width: 250px !important;
   }
 }
