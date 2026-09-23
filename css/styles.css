@@ -1,11 +1,7 @@
-/* =========================================
-   NANNI-ARCHIVE - CSS OPTIMIZADO Y ORDENADO
-   (Paleta y efectos unificados con SHRINES.CSS)
-   ========================================= */
+/* NANNI-ARCHIVE */
 
 /* [1] VARIABLES Y RESET */
 :root {
-  /* Paleta tomada de shrines.css para que ambos estilos convivan igual */
   --pink-main: #f06292;
   --pink-dark: #d81b60;
   --pink-deep: #880e4f;
@@ -81,12 +77,10 @@ h1, h2, h3, .nav a, .phone, .btn, .btn-horario, .tagline, .gacha-title {
 
 .logo img { width: 24px; height: 24px; }
 
-/* Checkbox oculto para el menú hamburguesa */
 .nav-toggle {
   display: none;
 }
 
-/* Botón hamburguesa (kawaii pixel style) */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -165,7 +159,6 @@ h1, h2, h3, .nav a, .phone, .btn, .btn-horario, .tagline, .gacha-title {
 
 .phone span { font-size: 11px; opacity: .8; font-family: 'Poppins', sans-serif; color: var(--pink-deep); }
 
-/* Marquee moderno (reemplaza <marquee>) */
 .marquee-container {
   background: var(--pink-dark);
   color: var(--white);
@@ -190,7 +183,6 @@ h1, h2, h3, .nav a, .phone, .btn, .btn-horario, .tagline, .gacha-title {
   100% { transform: translateX(-100%); }
 }
 
-/* [4] BOTONES FLOTANTES (Shrines + Guestbook) */
 .shrine-float-btn {
   position: fixed;
   bottom: 30px;
@@ -218,10 +210,10 @@ h1, h2, h3, .nav a, .phone, .btn, .btn-horario, .tagline, .gacha-title {
   box-shadow: 6px 8px 0px var(--pink-main);
 }
 
-.shrine-float-btn img { 
-  width: 30px; 
-  height: 30px; 
-  border-radius: 50%; 
+.shrine-float-btn img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
 }
 
 /* [5] HERO SECTION */
@@ -314,19 +306,19 @@ h1, h2, h3, .nav a, .phone, .btn, .btn-horario, .tagline, .gacha-title {
   width: 80px;
 }
 
-.gacha-box:hover #gacha-img { 
-  animation: wiggle .3s infinite; 
-  filter: brightness(1.1); 
+.gacha-box:hover #gacha-img {
+  animation: wiggle .3s infinite;
+  filter: brightness(1.1);
 }
 
-.gacha-box.open-anim { 
-  animation: pop-effect .5s ease-out; 
+.gacha-box.open-anim {
+  animation: pop-effect .5s ease-out;
 }
 
 .gacha-result {
   background: var(--pink-light);
   color: var(--text);
-  border: 2px dashed var(--pink-dark);
+  border: 2px solid var(--pink-dark);
   border-radius: 15px;
   display: flex;
   align-items: center;
@@ -339,8 +331,8 @@ h1, h2, h3, .nav a, .phone, .btn, .btn-horario, .tagline, .gacha-title {
 }
 
 /* [7] SECCIONES DE CONTENIDO */
-.kitchen h2, 
-.specialty h2, 
+.kitchen h2,
+.specialty h2,
 .news h2 {
   color: var(--pink-dark);
   letter-spacing: 2px;
@@ -364,9 +356,9 @@ h1, h2, h3, .nav a, .phone, .btn, .btn-horario, .tagline, .gacha-title {
   border-radius: 12px;
 }
 
-.intro-text b { 
-  color: var(--pink-dark); 
-  text-shadow: 1px 1px 0px var(--pink-soft); 
+.intro-text b {
+  color: var(--pink-dark);
+  text-shadow: 1px 1px 0px var(--pink-soft);
 }
 
 .kitchen img {
@@ -394,7 +386,6 @@ h1, h2, h3, .nav a, .phone, .btn, .btn-horario, .tagline, .gacha-title {
   border: 2px solid var(--pink-soft);
 }
 
-/* Contenedor para poner el botón al lado de la imagen */
 .profile-area {
   display: flex;
   align-items: center;
@@ -404,8 +395,8 @@ h1, h2, h3, .nav a, .phone, .btn, .btn-horario, .tagline, .gacha-title {
 }
 
 /* [8] BOTONES */
-.btn, 
-.btn-horario, 
+.btn,
+.btn-horario,
 .btns {
   display: inline-block;
   background: var(--pink-dark);
@@ -425,12 +416,12 @@ h1, h2, h3, .nav a, .phone, .btn, .btn-horario, .tagline, .gacha-title {
   margin: 10px;
 }
 
-.btn:hover { 
-  transform: translateY(-3px) scale(1.02); 
-  box-shadow: 6px 6px 0px var(--text); 
+.btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 6px 6px 0px var(--text);
 }
 
-.btn-horario, 
+.btn-horario,
 .btns {
   margin-top: 5px;
   padding: 8px 30px;
@@ -446,16 +437,16 @@ h1, h2, h3, .nav a, .phone, .btn, .btn-horario, .tagline, .gacha-title {
   position: relative;
 }
 
-.btn-horario:hover, 
-.btns:hover { 
-  transform: translate(-2px, -2px); 
-  box-shadow: 8px 8px 0px var(--pink-main); 
+.btn-horario:hover,
+.btns:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0px var(--pink-main);
 }
 
-.btn-horario:active, 
-.btns:active { 
-  transform: translate(4px, 4px); 
-  box-shadow: 0 0 0; 
+.btn-horario:active,
+.btns:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0 0 0;
 }
 
 .btns::after {
@@ -486,7 +477,6 @@ h1, h2, h3, .nav a, .phone, .btn, .btn-horario, .tagline, .gacha-title {
   position: relative;
 }
 
-/* [9] CHISMECITOS (NEWS) */
 .news {
   max-height: 580px;
   overflow-y: auto;
@@ -529,7 +519,7 @@ footer {
   text-align: center;
   padding: 30px 15px 20px 15px;
   margin-top: 50px;
-  border-top: 2px dashed var(--pink-soft);
+  border-top: 2px solid var(--pink-soft);
   background: linear-gradient(to bottom, transparent, var(--cream-bg));
   color: var(--text);
   font-size: 12px;
@@ -632,7 +622,6 @@ footer {
   user-select: none;
 }
 
-/* [11] NOVEDADES (ventana de actualizaciones) */
 .novedades-window{
   width:100%;
   background:var(--white);
@@ -664,7 +653,7 @@ footer {
   display:block;
 }
 .novedades-body{
-  height: 140px; /* espacio para aproximadamente 3 actualizaciones */
+  height: 140px;
   overflow-y: auto;
   padding: 6px 10px 8px;
 }
@@ -696,7 +685,6 @@ footer {
 a.update-row .update-row-text p{color:var(--pink-dark);font-weight:600;}
 a.update-row:hover .update-row-text p{text-decoration:underline;}
 
-/* [12] BOTÓN FLOTANTE: VINILO GRANDE (ULTRA LLAMATIVO) */
 .vinyl-float-btn {
   position: fixed;
   bottom: 24px;
@@ -706,17 +694,15 @@ a.update-row:hover .update-row-text p{text-decoration:underline;}
   align-items: center;
   gap: 6px;
   text-decoration: none;
-  z-index: 9999; /* Máxima prioridad sobre cualquier capa */
-  
-  /* 1. Levitan suavemente arriba y abajo */
+  z-index: 9999;
+
   animation: floatSmooth 3s ease-in-out infinite;
 
-  /* 2. Borde blanco tipo sticker + Aura Neón que vibra */
-  filter: drop-shadow(2px 2px 0px var(--white)) 
-          drop-shadow(-2px -2px 0px var(--white)) 
-          drop-shadow(2px -2px 0px var(--white)) 
+  filter: drop-shadow(2px 2px 0px var(--white))
+          drop-shadow(-2px -2px 0px var(--white))
+          drop-shadow(2px -2px 0px var(--white))
           drop-shadow(-2px 2px 0px var(--white));
-  
+
   transition: transform 0.3s var(--ease-kawaii);
 }
 
@@ -726,7 +712,7 @@ a.update-row:hover .update-row-text p{text-decoration:underline;}
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  
+
   /* Gradiente realista del disco */
   background: radial-gradient(
     circle,
@@ -738,19 +724,18 @@ a.update-row:hover .update-row-text p{text-decoration:underline;}
     #2a2a2a 80%,
     #050505 100%
   );
-  
+
   border: 3.5px solid var(--pink-dark);
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   /* Resplandor Neón constante + Rotación */
   box-shadow: 0 0 15px rgba(216, 27, 96, 0.7);
   animation: spinVinyl 4s linear infinite, glowPulse 2s ease-in-out infinite alternate;
   overflow: hidden;
 }
 
-/* Destello de brillo diagonal (Sparkle) */
 .vinyl-big::after {
   content: '';
   position: absolute;
@@ -788,7 +773,6 @@ a.update-row:hover .update-row-text p{text-decoration:underline;}
   border-radius: 50%;
 }
 
-/* --- Etiqueta de Texto con Pulso --- */
 .vinyl-text {
   font-family: 'Silkscreen', cursive;
   font-size: 9.5px;
@@ -803,7 +787,6 @@ a.update-row:hover .update-row-text p{text-decoration:underline;}
   transition: background 0.2s var(--ease-kawaii), transform 0.2s var(--ease-kawaii), color 0.2s var(--ease-kawaii);
 }
 
-/* --- EFECTOS HOVER (Interacción al pasar el cursor) --- */
 .vinyl-float-btn:hover {
   animation-play-state: paused;
   transform: scale(1.12) rotate(-3deg);
@@ -821,43 +804,42 @@ a.update-row:hover .update-row-text p{text-decoration:underline;}
   box-shadow: 3px 3px 0px var(--pink-dark);
 }
 
-/* [13] ANIMACIONES (KEYFRAMES) */
-@keyframes pixelBounce { 
-  from { transform: translateY(0); } 
-  to { transform: translateY(-10px); } 
+@keyframes pixelBounce {
+  from { transform: translateY(0); }
+  to { transform: translateY(-10px); }
 }
 
-@keyframes heroZoom { 
-  from { transform: scale(1); opacity: 0; } 
-  to { transform: scale(1); opacity: 1; } 
+@keyframes heroZoom {
+  from { transform: scale(1); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
 
-@keyframes jelly { 
-  0%, 100% { transform: scale(1); } 
-  30% { transform: scale(1.1, .9); } 
-  50% { transform: scale(.95, 1.05); } 
+@keyframes jelly {
+  0%, 100% { transform: scale(1); }
+  30% { transform: scale(1.1, .9); }
+  50% { transform: scale(.95, 1.05); }
 }
 
-@keyframes float { 
-  0%, 100% { transform: translateY(0); } 
-  50% { transform: translateY(12px); } 
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(12px); }
 }
 
-@keyframes glow { 
-  0%, 100% { box-shadow: 0 0 0 rgba(216, 27, 96, .4); } 
-  50% { box-shadow: 0 0 25px rgba(216, 27, 96, .6); } 
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 0 rgba(216, 27, 96, .4); }
+  50% { box-shadow: 0 0 25px rgba(216, 27, 96, .6); }
 }
 
-@keyframes wiggle { 
-  0%, 100% { transform: rotate(0); } 
-  25% { transform: rotate(5deg); } 
-  75% { transform: rotate(-5deg); } 
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0); }
+  25% { transform: rotate(5deg); }
+  75% { transform: rotate(-5deg); }
 }
 
-@keyframes pop-effect { 
-  0% { transform: scale(1); } 
-  50% { transform: scale(1.5); } 
-  100% { transform: scale(1); } 
+@keyframes pop-effect {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.5); }
+  100% { transform: scale(1); }
 }
 
 @keyframes heartbeat {
@@ -879,7 +861,6 @@ a.update-row:hover .update-row-text p{text-decoration:underline;}
   to { transform: rotate(360deg); }
 }
 
-/* Levitación flotante de arriba a abajo */
 @keyframes floatSmooth {
   0%, 100% {
     transform: translateY(0px);
@@ -899,7 +880,6 @@ a.update-row:hover .update-row-text p{text-decoration:underline;}
   }
 }
 
-/* Ráfaga de destello de luz cruzado */
 @keyframes sparkleShine {
   0% {
     transform: translateX(-100%) translateY(-100%) rotate(0deg);
@@ -909,13 +889,7 @@ a.update-row:hover .update-row-text p{text-decoration:underline;}
   }
 }
 
-/* =========================================
-   RESPONSIVE
-   (breakpoints 1100/900/768 consolidados: se
-   fusionaron los mini-bloques repetidos del
-   final del archivo, dejando siempre los
-   valores que estaban más abajo)
-   ========================================= */
+/* RESPONSIVE */
 
 /* Tablet grande / laptop pequeña */
 @media (max-width: 1100px) {
@@ -1009,7 +983,6 @@ a.update-row:hover .update-row-text p{text-decoration:underline;}
     display: flex;
   }
 
-  /* Nav se convierte en panel flotante kawaii */
   .nav {
     position: fixed;
     top: 0;
@@ -1142,7 +1115,6 @@ a.update-row:hover .update-row-text p{text-decoration:underline;}
     padding: 10px 20px;
   }
 
-  /* Float buttons - corrección para que no se salgan */
   .shrine-float-btn {
     bottom: 16px;
     right: 12px;
@@ -1260,21 +1232,18 @@ a.update-row:hover .update-row-text p{text-decoration:underline;}
   }
 }
 
-
-/* =========================================
-   OVERLAY FLOTANTE DE DETALLE (SÓLO MÓVIL)
-   ========================================= */
+/* OVERLAY FLOTANTE DE DETALLE (SÓLO MÓVIL) */
 @media (max-width: 960px) {
-  /* Convierte la sección de detalle en un popup que cubre la pantalla */
+
   #shrine-detail:not(:empty) {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100dvh;
-    background: rgba(109, 47, 68, 0.6); /* Fondo semitransparente rosa oscuro */
-    backdrop-filter: blur(4px);          /* Efecto borroso kawaii */
-    z-index: 10000;                      /* Por encima de absolutamente todo */
+    background: rgba(109, 47, 68, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 10000;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1283,7 +1252,6 @@ a.update-row:hover .update-row-text p{text-decoration:underline;}
     animation: fadeInModal 0.25s var(--ease-kawaii);
   }
 
-  /* Ajusta la tarjeta interna para que quepa bien en el centro */
   #shrine-detail .detail-card {
     width: 100%;
     max-width: 450px;
@@ -1306,17 +1274,12 @@ a.update-row:hover .update-row-text p{text-decoration:underline;}
   }
 }
 
+/* ✦ TRANSICIÓN SUAVE ENTRE PÁGINAS (FADE) */
 
-/* ==========================================================================
-   ✦ TRANSICIÓN SUAVE ENTRE PÁGINAS (FADE)
-   ========================================================================== */
-
-/* Estado inicial al cargar: animación de entrada */
 body {
-  animation: fadeInPage 0.4s ease-in-out forwards;
+  animation: fadeInPage 0.4s ease-in-out;
 }
 
-/* Clase que aplicará JS justo antes de cambiar de página */
 body.page-is-exiting {
   animation: fadeOutPage 0.3s ease-in-out forwards;
 }
@@ -1325,7 +1288,7 @@ body.page-is-exiting {
 @keyframes fadeInPage {
   from {
     opacity: 0;
-    transform: translateY(6px); /* Ligero desplazamiento hacia arriba */
+    transform: translateY(6px);
   }
   to {
     opacity: 1;
