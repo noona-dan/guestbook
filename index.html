@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-site-base="https://nanni-archive.neocities.org/" data-active="https://noona-dan.github.io/guestbook/">
 <head>
 <link rel="icon" type="image/gif" href="https://static.vecteezy.com/system/resources/previews/024/704/141/non_2x/3d-illustration-icon-of-pink-writing-list-letter-with-feather-for-ui-ux-web-mobile-app-social-media-ads-png.png">
 <meta charset="UTF-8">
 <title>nanni-archive</title>
 
-<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="https://nanni-archive.neocities.org/css/styles.css">
 <link rel="stylesheet" href="css/guest.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Silkscreen&family=VT323&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://nanni-archive.neocities.org/js/layout.js"></script>
 
 </head>
 
@@ -20,40 +20,9 @@
 
 <div class="page">
 
-<header class="header">
+<header class="header" id="site-header"></header>
 
-<input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
-
-<label for="nav-toggle" class="hamburger" aria-label="Menu">
-<span></span>
-<span></span>
-<span></span>
-</label>
-
-<div class="nav-overlay" onclick="document.getElementById('nav-toggle').checked=false;"></div>
-
-<nav class="nav">
-
-<a href="https://nanni-archive.neocities.org/" target="_self">HOME</a>
-<a href="https://nanni-archive.neocities.org/aboutme" target="_self">ABOUT ME</a>
-<a href="https://nanni-archive.neocities.org/recomendaciones.html" target="_self">RECs</a>
-<a href="https://nanni-archive.neocities.org/blogs.html" target="_self">BLOGS</a>
-<a href="https://nanni-archive.neocities.org/diario.html" target="_self">DIARY</a>
-<a href="https://nanni-archive.neocities.org/galeria.html" target="_self">GALLERY</a>
-<a href="https://nanni-archive.neocities.org/archivo.html" target="_self">ARCHIVE</a>
-<a href="https://nanni-archive.neocities.org/tutoriales.html" target="_self">TUTORIALS</a>
-<a href="https://nanni-archive.neocities.org/redes.html" target="_self">LINKS</a>
-<a href="https://noona-dan.github.io/guestbook/" target="_self" class="active">GUESTBOOK</span>
-
-</nav>
-
-<a href="#mi-footer" target="_self">
-      <img src="img/nannibot.gif" alt="Nanni Archive" width="132" height="46.5" style="image-rendering: pixelated; border: 1px solid #FFD1DC; cursor: pointer;">
-    </a>
-
-</header>
-
-<!-- ================= HERO ================= -->
+<!-- ========== HERO ========== -->
 
 <section class="guest-hero">
 
@@ -68,7 +37,7 @@
 
 </section>
 
-<!-- ================= LAYOUT DOS COLUMNAS ================= -->
+<!-- ========== LAYOUT DOS COLUMNAS ========== -->
 
 <div class="guest-layout">
 
@@ -115,7 +84,7 @@
 
 </div>
 
-<!-- ================= POPUP ================= -->
+<!-- ========== POPUP ========== -->
 
 <div id="guest-popup" class="guest-popup">
 
@@ -133,20 +102,18 @@
 
 </div>
 
-<!-- ================= STAMPS ================= -->
+<!-- ========== STAMPS ========== -->
 
 <section class="stamps-section">
 
-  <img src="https://media1.tenor.com/m/R8T1SQ4S6J4AAAAd/animation.gif">
-  <img src="https://media.tenor.com/5J0HvMUFAy4AAAAi/cat-separador.gif">
-  <img src="https://media1.tenor.com/m/R8T1SQ4S6J4AAAAd/animation.gif">
+  <img src="https://media1.tenor.com/m/R8T1SQ4S6J4AAAAd/animation.gif" loading="lazy" decoding="async">
+  <img src="https://media.tenor.com/5J0HvMUFAy4AAAAi/cat-separador.gif" loading="lazy" decoding="async">
+  <img src="https://media1.tenor.com/m/R8T1SQ4S6J4AAAAd/animation.gif" loading="lazy" decoding="async">
 
 </section>
 
-
-
 </div>
-<!-- ================= PLAYER (estilo Y2K device) ================= -->
+<!-- ========== PLAYER (ESTILO Y2K DEVICE) ========== -->
 
 <div class="retro-player" id="draggable-player">
 
@@ -158,7 +125,7 @@
   <div class="player-screen">
 
     <div class="screen-art">
-      <img src="img/5sosNEO.png">
+      <img src="img/5sosNEO.png" loading="lazy" decoding="async">
     </div>
 
     <div class="screen-info">
@@ -217,7 +184,6 @@
   <span class="mini-icon">🎵</span> Player
 </button>
 <script src="js/guest.js"></script>
-
 
 </body>
 
