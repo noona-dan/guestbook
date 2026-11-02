@@ -1,6 +1,6 @@
 console.log("%c✧ ¡Bienvenidx a mi Guestbook! ✧", "color: #ff66aa; font-weight: bold; font-size: 20px;");
 
-/* ========== AUDIO PLAYER ========== */
+// ---------- AUDIO PLAYER ----------
 const audio = document.getElementById('bg-audio');
 const btn = document.getElementById('play-pause-btn');
 const likeBtn = document.getElementById('like-btn');
@@ -69,7 +69,7 @@ if (restoreBtn && player) {
   });
 }
 
-/* ========== DRAG (transform-based → se queda fijo a la pantalla) ========== */
+// ---------- DRAG (TRANSFORM-BASED → SE QUEDA FIJO A LA PANTALLA) ----------
 let isDragging = false;
 let startX = 0, startY = 0;
 let translateX = 0, translateY = 0;
@@ -120,7 +120,7 @@ if (player && playerHeader) {
   }
 }
 
-/* ========== GUESTBOOK — JSONP ========== */
+// ---------- GUESTBOOK — JSONP ----------
 const API = "https://script.google.com/macros/s/AKfycbwNMCVShoJcYUH36yjeCTfnqJqpp1ZSFUs2nPS0Me_msbwKLRKO5X_p7AIY-SedgQo/exec";
 const PAGE = "guestbook";
 
@@ -255,7 +255,7 @@ function sendGuest() {
 
 loadGuest();
 
-/* ========== FORZAR PLAYER A LA ESQUINA DE LA PANTALLA (nunca al sitio) ========== */
+// ---------- FORZAR PLAYER A LA ESQUINA DE LA PANTALLA (NUNCA AL SITIO) ----------
 function pinPlayerToViewport() {
   [player, restoreBtn].forEach(el => {
     if (!el) return;
